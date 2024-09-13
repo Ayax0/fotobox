@@ -32,10 +32,9 @@ export default defineEventHandler(async (event) => {
 
 		useStorage("image").setItemRaw("_temp.pdf", await doc.save());
 
-		// await printer.print(`${process.cwd()}/.data/image/_temp.pdf`, {
-		// 	printer: prt?.toString(),
-		// });
-		console.log("print");
+		await printer.print(`${process.cwd()}/.data/image/_temp.pdf`, {
+			printer: prt?.toString(),
+		});
 	} finally {
 		useStorage("image").removeItem("_temp.pdf");
 	}
